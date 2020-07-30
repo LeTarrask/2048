@@ -27,16 +27,15 @@ class GameEngine: ObservableObject {
         board = Board(size: boardSize)
     }
     
-    func dropRandomTile() {
-        let values = board.grid.flatMap { $0 }.filter { $0.value == 0 } // here it checks if all the spaces are occuppied, it doesn't check if there are moves available
+    func dropRandomTile(direction: MoveDirection) {
+        let values = board.grid.flatMap { $0 }.filter { $0.value == 0 } // here it checks if all the spaces are occuppied
         
         var movesAvailable = false
         
         for line in 0...boardSize-1 {
-        //    print(board.grid[line].map({$0.value}))
             for row in 0...boardSize-2 {
                 if board.grid[line][row].value == board.grid[line][row+1].value {
-                            movesAvailable = true
+                    movesAvailable = true
                 }
             }
             for row in 0...boardSize-1 {
@@ -55,13 +54,18 @@ class GameEngine: ObservableObject {
         }
         
         if state != .over {
-            let random = [Int.random(in: 0...boardSize-1), Int.random(in: 0...boardSize-1)]
-            let chosenTile = board.grid[random[0]][random[1]]
-            if chosenTile.value == 0 {
-                board.grid[random[0]][random[1]].value = 2
-                print("Dropped tile at position: " )
-            } else {
-                dropRandomTile()
+            let random = Int.random(in: 0...boardSize-1)
+
+            switch direction {
+            case .up:
+                board.grid[boardSize-1][random].value = 2
+            case .down:
+                board.grid[0][random].value = 2
+            case .left:
+                board.grid[random][boardSize-1].value = 2
+            case .right:
+                board.grid[random][0].value = 2
+
             }
         }
     }
@@ -122,7 +126,7 @@ class GameEngine: ObservableObject {
                 board.grid[lineNumber] = newLine.reversed()
             }
         }
-        dropRandomTile()
+        dropRandomTile(direction: direction)
     }
     
     func transformArray(array: [Int]) -> [Int] {
