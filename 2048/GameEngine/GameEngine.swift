@@ -28,6 +28,32 @@ class GameEngine: ObservableObject {
     }
     
     func dropRandomTile() {
+        let values = board.grid.flatMap { $0 }.filter { $0.value == 0 } // here it checks if all the spaces are occuppied, it doesn't check if there are moves available
+        
+        var movesAvailable = false
+        
+        for line in 0...boardSize-1 {
+        //    print(board.grid[line].map({$0.value}))
+            for row in 0...boardSize-2 {
+                if board.grid[line][row].value == board.grid[line][row+1].value {
+                            movesAvailable = true
+                }
+            }
+            for row in 0...boardSize-1 {
+                if line == boardSize-1 {
+                    break
+                }
+                if board.grid[line][row].value == board.grid[line+1][row].value {
+                    movesAvailable = true
+                }
+            }
+        }
+        
+        if values.count == 0 && movesAvailable == false {
+            state = .over
+            print("Game Over")
+        }
+        
         if state != .over {
             let random = [Int.random(in: 0...boardSize-1), Int.random(in: 0...boardSize-1)]
             let chosenTile = board.grid[random[0]][random[1]]
@@ -40,10 +66,17 @@ class GameEngine: ObservableObject {
         }
     }
     
+    enum MoveDirection {
+        case up
+        case down
+        case left
+        case right
+    }
+    
     func move(direction: MoveDirection) {
         switch direction {
         case .down:
-            print("down")
+            print("down move")
             for row in 0...boardSize-1 {
                 var values = [Int]()
                 for line in 0...boardSize-1 {
@@ -55,9 +88,8 @@ class GameEngine: ObservableObject {
                     board.grid[line][row].value = newArray[line]
                 }
             }
-            dropRandomTile()
         case .up:
-            print("up")
+            print("up move")
             for row in 0...boardSize-1 {
                 var values = [Int]()
                 for line in 0...boardSize-1 {
@@ -68,7 +100,6 @@ class GameEngine: ObservableObject {
                     board.grid[line][row].value = newArray[line]
                 }
             }
-            dropRandomTile()
         case .left:
             print("left move")
             for lineNumber in 0...boardSize-1 {
@@ -79,7 +110,6 @@ class GameEngine: ObservableObject {
                 }
                 board.grid[lineNumber] = newLine
             }
-            dropRandomTile()
         case .right:
             print("right move")
             for lineNumber in 0...boardSize-1 {
@@ -91,15 +121,8 @@ class GameEngine: ObservableObject {
                 }
                 board.grid[lineNumber] = newLine.reversed()
             }
-            dropRandomTile()
         }
-        
-        let values = board.grid.flatMap { $0 }.filter { $0.value == 0 } // here it checks if all the spaces are occuppied, it doesn't check if there are moves available
-        if values.count == 0 {
-            state = .over
-            print("Game Over")
-        }
-        
+        dropRandomTile()
     }
     
     func transformArray(array: [Int]) -> [Int] {
@@ -143,12 +166,5 @@ class GameEngine: ObservableObject {
 
         return newArray
     }
-}
-
-enum MoveDirection {
-    case up
-    case down
-    case left
-    case right
 }
 
