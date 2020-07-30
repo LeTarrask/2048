@@ -12,36 +12,58 @@ struct ContentView: View {
     
     @State private var offset = CGSize.zero
     
+    @State var showLeader = false
+       
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
                 HStack {
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.blue)
-                            .cornerRadius(15)
-                            .frame(width: 100, height: 100)
-                        VStack {
-                            Text("SCORE")
-                                .fontWeight(.bold)
-                            Text(String(game.score))
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
+                    Spacer()
+                    VStack {
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(.blue)
+                                .cornerRadius(15)
+                                .frame(width: 100, height: 100)
+                            VStack {
+                                Text("SCORE")
+                                    .fontWeight(.bold)
+                                Text(String(game.score))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                            }
                         }
+                        NavigationLink(
+                            destination: OptionsScreen(),
+                            label: { Text("OPTIONS")})
+                        .padding(10)
+                        .background(Color.blue)
+                        .cornerRadius(5)
+                        .foregroundColor(.white)
                     }
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.blue)
-                            .cornerRadius(15)
-                            .frame(width: 100, height: 100)
-                        VStack {
-                            Text("BEST")
-                                .fontWeight(.bold)
-                            Text(String(game.highest))
-                                .foregroundColor(.white)
-                                .fontWeight(.bold)
+                    VStack {
+                        ZStack {
+                            HStack {
+                                Rectangle()
+                                    .foregroundColor(.blue)
+                                    .cornerRadius(15)
+                                    .frame(width: 100, height: 100)
+                            }
+                            VStack {
+                                Text("BEST")
+                                    .fontWeight(.bold)
+                                Text(String(game.highest))
+                                    .foregroundColor(.white)
+                                    .fontWeight(.bold)
+                            }
                         }
+                        Button("LEADERBOARD") {
+                            self.showLeader.toggle()
+                        }
+                        .padding(10)
+                        .background(Color.blue)
+                        .cornerRadius(5)
+                        .foregroundColor(.white)
                     }
                 }.padding()
                 
@@ -81,6 +103,7 @@ struct ContentView: View {
                         }
                 )
             }
+            .sheet(isPresented: $showLeader) { LeaderBoard() }
             .navigationBarTitle("2048", displayMode: .inline)
             .navigationBarItems(trailing: Button("Reset") { game.resetGame() })
         }

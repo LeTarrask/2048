@@ -24,11 +24,7 @@ class GameEngine: ObservableObject {
             }
         }
     }
-    @Published var highest: Int {
-        didSet {
-            UserDefaults.standard.set(self.highest, forKey: "High Score")
-        }
-    }
+    @Published var highest: Int = 0
     
     init() {
         highest = UserDefaults.standard.integer(forKey: "High Score")
@@ -83,6 +79,11 @@ class GameEngine: ObservableObject {
         if values.count == 0 && movesAvailable == false {
             state = .over
             print("Game Over")
+            if highest > score {
+                // TO DO: - fix leaderbord thing
+                // should prompt user name to leaderboard
+                // save -> UserDefaults.standard.set(self.highest, forKey: "High Score")
+            }
         }
         
         if board.grid.flatMap { $0 }.filter({ $0.value == 2048 }).count > 1 {
