@@ -28,6 +28,10 @@ class GameEngine: ObservableObject {
     }
     
     func dropRandomTile(direction: MoveDirection) {
+        do {
+            sleep(1)
+        }
+        
         let values = board.grid.flatMap { $0 }.filter { $0.value == 0 } // here it checks if all the spaces are occuppied
         
         var movesAvailable = false
@@ -65,7 +69,6 @@ class GameEngine: ObservableObject {
                 board.grid[random][boardSize-1].value = 2
             case .right:
                 board.grid[random][0].value = 2
-
             }
         }
     }
