@@ -17,21 +17,49 @@ class GameEngine: ObservableObject {
     
     var state: State = .running
         
-    @Published var score: Int = 0
-    var highest: Int = 0
+    @Published var score: Int = 0 {
+        didSet {
+            if score > highest {
+                highest = score
+            }
+        }
+    }
+    @Published var highest: Int {
+        didSet {
+            UserDefaults.standard.set(self.highest, forKey: "High Score")
+        }
+    }
+    
+    init() {
+        highest = UserDefaults.standard.integer(forKey: "High Score")
+    }
     
     var boardSize: Int = 4
     @Published var board: Board = Board(size: 4)
     
     func resetGame() {
         board = Board(size: boardSize)
+        score = 0
     }
     
     func dropRandomTile(direction: MoveDirection) {
-        do {
-            sleep(1)
+        if state != .over {
+            let random = Int.random(in: 0...boardSize-1)
+
+            switch direction {
+            case .up:
+                board.grid[boardSize-1][random].value = 2
+            case .down:
+                board.grid[0][random].value = 2
+            case .left:
+                board.grid[random][boardSize-1].value = 2
+            case .right:
+                board.grid[random][0].value = 2
+            }
         }
-        
+    }
+    
+    func checkState() {
         let values = board.grid.flatMap { $0 }.filter { $0.value == 0 } // here it checks if all the spaces are occuppied
         
         var movesAvailable = false
@@ -57,19 +85,9 @@ class GameEngine: ObservableObject {
             print("Game Over")
         }
         
-        if state != .over {
-            let random = Int.random(in: 0...boardSize-1)
-
-            switch direction {
-            case .up:
-                board.grid[boardSize-1][random].value = 2
-            case .down:
-                board.grid[0][random].value = 2
-            case .left:
-                board.grid[random][boardSize-1].value = 2
-            case .right:
-                board.grid[random][0].value = 2
-            }
+        if board.grid.flatMap { $0 }.filter({ $0.value == 2048 }).count > 1 {
+            state = .won
+            print("Game Won")
         }
     }
     
@@ -129,6 +147,7 @@ class GameEngine: ObservableObject {
                 board.grid[lineNumber] = newLine.reversed()
             }
         }
+        checkState()
         dropRandomTile(direction: direction)
     }
     

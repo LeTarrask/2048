@@ -15,14 +15,34 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // MARK: Move button
+                Spacer()
                 HStack {
-                    Button("Reset") { game.resetGame() }
-                        .foregroundColor(.red)
-                    Spacer()
-                    Text("Score: " + String(game.score))
-                        .font(.headline)
-                        .foregroundColor(.green)
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(.blue)
+                            .cornerRadius(15)
+                            .frame(width: 100, height: 100)
+                        VStack {
+                            Text("SCORE")
+                                .fontWeight(.bold)
+                            Text(String(game.score))
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                        }
+                    }
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(.blue)
+                            .cornerRadius(15)
+                            .frame(width: 100, height: 100)
+                        VStack {
+                            Text("BEST")
+                                .fontWeight(.bold)
+                            Text(String(game.highest))
+                                .foregroundColor(.white)
+                                .fontWeight(.bold)
+                        }
+                    }
                 }.padding()
                 
                 
@@ -36,6 +56,9 @@ struct ContentView: View {
                         }
                     }
                 }
+                .padding()
+                .background(Color.gray)
+                .cornerRadius(15)
                 .padding()
                 .gesture(
                     DragGesture()
@@ -59,6 +82,7 @@ struct ContentView: View {
                 )
             }
             .navigationBarTitle("2048", displayMode: .inline)
+            .navigationBarItems(trailing: Button("Reset") { game.resetGame() })
         }
     }
 }
