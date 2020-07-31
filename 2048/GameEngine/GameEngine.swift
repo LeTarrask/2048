@@ -38,6 +38,7 @@ class GameEngine: ObservableObject {
         score = 0
     }
 
+    //swiftlint:disable cyclomatic_complexity
     func dropRandomTile(direction: MoveDirection) {
         if state != .over {
             switch direction {
@@ -205,5 +206,3 @@ class GameEngine: ObservableObject {
         return newArray
     }
 }
-
-

@@ -46,7 +46,7 @@ struct TileView: View {
                 .cornerRadius(15)
             Text(String(tile.value))
                 .fontWeight(.black)
-        }.animation(.easeInOut)
+        }.animation(.spring())
     }
 }
 

@@ -17,6 +17,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+                // MARK: - Control buttons
                 HStack {
                     Spacer()
                     VStack {
@@ -67,7 +68,7 @@ struct ContentView: View {
                     }
                 }.padding()
 
-                // MARK: - Board Drawing
+                // MARK: - Board
                 VStack {
                     ForEach(game.board.grid, id: \.self) { line in
                         HStack {
