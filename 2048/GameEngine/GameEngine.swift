@@ -156,16 +156,6 @@ class GameEngine: ObservableObject {
     }
 
     func transformArray(array: [Int]) -> [Int] {
-        // Tests:
-        // [2,0,4,0]
-        // [0,4,0,8]
-        // [8,0,2,2]
-        // [2,2,2,2]
-        // [0,2,2,0]
-        // [2,2,2,8]
-        // [256,256,2,4]
-        // [2,0,2,0]
-
         var newArray = [Int]()
 
         // Joins all numeric values together
