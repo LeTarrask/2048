@@ -15,7 +15,7 @@ class GameEngine: ObservableObject {
         case over
     }
     
-    var state: State = .running
+    @Published var state: State = .running
         
     @Published var score: Int = 0 {
         didSet {
