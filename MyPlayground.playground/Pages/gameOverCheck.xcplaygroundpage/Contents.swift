@@ -5,12 +5,12 @@ import Foundation
 struct Board {
     var grid = [[Tile]]()
     var size: Int
-    
+
     init(size: Int) {
         self.size = size
-        
+
         // MARK: - Testing board
-        for lines in [[8,2,2,8], [2,2,2,8], [256,256,2,4], [2,2,2,4]] {
+        for lines in [[8, 2, 2, 8], [2, 2, 2, 8], [256, 256, 2, 4], [2, 2, 2, 4]] {
             var line = [Tile]()
             for value in lines {
                 var tile = Tile()

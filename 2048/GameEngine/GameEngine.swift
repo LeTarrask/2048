@@ -14,9 +14,9 @@ class GameEngine: ObservableObject {
         case running
         case over
     }
-    
+
     @Published var state: State = .running
-        
+
     @Published var score: Int = 0 {
         didSet {
             if score > highest {
@@ -25,19 +25,19 @@ class GameEngine: ObservableObject {
         }
     }
     @Published var highest: Int = 0
-    
+
     init() {
         highest = UserDefaults.standard.integer(forKey: "High Score")
     }
-    
+
     var boardSize: Int = 4
     @Published var board: Board = Board(size: 4)
-    
+
     func resetGame() {
         board = Board(size: boardSize)
         score = 0
     }
-    
+
     func dropRandomTile(direction: MoveDirection) {
         if state != .over {
             let random = Int.random(in: 0...boardSize-1)
@@ -54,12 +54,13 @@ class GameEngine: ObservableObject {
             }
         }
     }
-    
+
     func checkState() {
-        let values = board.grid.flatMap { $0 }.filter { $0.value == 0 } // here it checks if all the spaces are occuppied
-        
+        // here it checks if all the spaces are occuppied
+        let values = board.grid.flatMap { $0 }.filter { $0.value == 0 }
+
         var movesAvailable = false
-        
+
         for line in 0...boardSize-1 {
             for row in 0...boardSize-2 {
                 if board.grid[line][row].value == board.grid[line][row+1].value {
@@ -75,7 +76,7 @@ class GameEngine: ObservableObject {
                 }
             }
         }
-        
+
         if values.count == 0 && movesAvailable == false {
             state = .over
             print("Game Over")
@@ -85,20 +86,20 @@ class GameEngine: ObservableObject {
                 // save -> UserDefaults.standard.set(self.highest, forKey: "High Score")
             }
         }
-        
+
         if board.grid.flatMap { $0 }.filter({ $0.value == 2048 }).count > 1 {
             state = .won
             print("Game Won")
         }
     }
-    
+
     enum MoveDirection {
         case up
         case down
         case left
         case right
     }
-    
+
     func move(direction: MoveDirection) {
         switch direction {
         case .down:
@@ -129,7 +130,7 @@ class GameEngine: ObservableObject {
         case .left:
             print("left move")
             for lineNumber in 0...boardSize-1 {
-                let newArray = transformArray(array: board.grid[lineNumber].map{ $0.value } )
+                let newArray = transformArray(array: board.grid[lineNumber].map { $0.value })
                 var newLine = [Tile]()
                 for value in newArray {
                     newLine.append(Tile(value: value))
@@ -139,7 +140,7 @@ class GameEngine: ObservableObject {
         case .right:
             print("right move")
             for lineNumber in 0...boardSize-1 {
-                let backwardsArray = board.grid[lineNumber].map{ $0.value }
+                let backwardsArray = board.grid[lineNumber].map { $0.value }
                 let newArray = transformArray(array: backwardsArray.reversed() )
                 var newLine = [Tile]()
                 for value in newArray {
@@ -151,7 +152,7 @@ class GameEngine: ObservableObject {
         checkState()
         dropRandomTile(direction: direction)
     }
-    
+
     func transformArray(array: [Int]) -> [Int] {
         // Tests:
         // [2,0,4,0]
@@ -170,7 +171,8 @@ class GameEngine: ObservableObject {
             if array[position] != 0 { newArray.append(array[position]) }
         }
 
-        // Iterates new array to merge values, to the second to last element. If duplicates found, doubles the first and eliminates the second
+        // Iterates new array to merge values, to the second to last element.
+        // If duplicates found, doubles the first and eliminates the second
         if newArray.count > 1 {
             for position in 0...newArray.count-2 {
                 if newArray[position] == newArray[position+1] {
@@ -194,4 +196,3 @@ class GameEngine: ObservableObject {
         return newArray
     }
 }
-

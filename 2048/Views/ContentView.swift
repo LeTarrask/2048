@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var game = GameEngine()
-    
+
     @State private var offset = CGSize.zero
-    
+
     @State var showLeader = false
-       
+
     var body: some View {
         NavigationView {
             VStack {
@@ -66,8 +66,7 @@ struct ContentView: View {
                         .foregroundColor(.white)
                     }
                 }.padding()
-                
-                
+
                 // MARK: - Board Drawing
                 VStack {
                     ForEach(game.board.grid, id: \.self) { line in
@@ -88,16 +87,21 @@ struct ContentView: View {
                             self.offset = gesture.translation
                         }
                         .onEnded { value in
-                            if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
+                            if value.translation.width < 0
+                                && value.translation.height > -30
+                                && value.translation.height < 30 {
                                 self.game.move(direction: .left)
-                            }
-                            else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
+                            } else if value.translation.width > 0
+                                        && value.translation.height > -30
+                                        && value.translation.height < 30 {
                                 self.game.move(direction: .right)
-                            }
-                            else if value.translation.height < 0 && value.translation.width < 100 && value.translation.width > -100 {
+                            } else if value.translation.height < 0
+                                        && value.translation.width < 100
+                                        && value.translation.width > -100 {
                                 self.game.move(direction: .up)
-                            }
-                            else if value.translation.height > 0 && value.translation.width < 100 && value.translation.width > -100 {
+                            } else if value.translation.height > 0
+                                        && value.translation.width < 100
+                                        && value.translation.width > -100 {
                                 self.game.move(direction: .down)
                             }
                         }
@@ -109,8 +113,6 @@ struct ContentView: View {
         }
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

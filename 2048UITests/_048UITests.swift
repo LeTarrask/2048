@@ -6,7 +6,7 @@
 //
 
 import XCTest
-
+// swiftlint:disable type_name
 class _048UITests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -15,7 +15,8 @@ class _048UITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        // In UI tests it’s important to set the initial state - such as interface orientation
+        // - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {

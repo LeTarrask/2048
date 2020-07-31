@@ -8,6 +8,7 @@
 import SwiftUI
 
 @main
+// swiftlint:disable type_name
 struct _048App: App {
     var body: some Scene {
         WindowGroup {

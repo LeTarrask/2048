@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import _048
-
+// swiftlint:disable type_name
 class _048Tests: XCTestCase {
 
     override func setUpWithError() throws {

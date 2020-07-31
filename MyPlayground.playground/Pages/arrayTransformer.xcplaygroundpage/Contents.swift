@@ -1,6 +1,6 @@
 import UIKit
 
-let array = [8,4,8,2]
+let array = [8, 4, 8, 2]
 
 // Tests:
 // [2,0,4,0]
@@ -24,7 +24,8 @@ for position in 0...array.count-1 {
     if array[position] != 0 { newArray.append(array[position]) }
 }
 
-// Iterates new array to merge values, to the second to last element. If duplicates found, doubles the first and eliminates the second
+// Iterates new array to merge values, to the second to last element.
+// If duplicates found, doubles the first and eliminates the second
 if newArray.count > 2 {
     for position in 0...newArray.count-2 {
         if newArray[position] == newArray[position+1] {
@@ -42,7 +43,6 @@ for _ in 1...diff {
     newArray.append(0)
 }
 
-
 newArray
 
 // for each original number in the array that is not zero
@@ -51,6 +51,3 @@ newArray
 //  --- if the target position is different from the original position
 //  -- add the number to the number on the target position
 //  --- replace the original number by zero
-
-
-
