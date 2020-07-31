@@ -14,6 +14,10 @@ struct MainScreen: View {
 
     @State var showLeader = false
 
+    @State var playerName: String = "Player 1"
+
+    @State var boardSize: Int = 4
+
     var body: some View {
         NavigationView {
             VStack {
@@ -35,7 +39,7 @@ struct MainScreen: View {
                             }
                         }
                         NavigationLink(
-                            destination: OptionsScreen(),
+                            destination: OptionsScreen(username: $playerName, boardSize: $boardSize, game: game),
                             label: { Text("OPTIONS")})
                         .padding(10)
                         .background(Color.blue)
@@ -67,6 +71,11 @@ struct MainScreen: View {
                         .foregroundColor(.white)
                     }
                 }.padding()
+
+                HStack {
+                    Spacer()
+                    Text(playerName)
+                }.padding(.trailing)
 
                 // MARK: - Board
                 VStack {
@@ -110,7 +119,7 @@ struct MainScreen: View {
             }
             .sheet(isPresented: $showLeader) { LeaderBoard() }
             .navigationBarTitle("2048", displayMode: .inline)
-            .navigationBarItems(trailing: Button("Reset") { game.resetGame() })
+            .navigationBarItems(trailing: Button("Reset") { game.resetGame(boardSize: boardSize) })
         }
     }
 }

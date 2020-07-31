@@ -33,8 +33,9 @@ class GameEngine: ObservableObject {
     var boardSize: Int = 4
     @Published var board: Board = Board(size: 4)
 
-    func resetGame() {
+    func resetGame(boardSize: Int) {
         board = Board(size: boardSize)
+        self.boardSize = boardSize
         score = 0
     }
 

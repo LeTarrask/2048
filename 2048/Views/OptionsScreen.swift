@@ -8,13 +8,38 @@
 import SwiftUI
 
 struct OptionsScreen: View {
+    @Binding var username: String
+
+    @Binding var boardSize: Int
+    @ObservedObject var game: GameEngine
+
     var body: some View {
-        Text("Hello Options")
+        NavigationView {
+            Form {
+                Section(header: Text("PROFILE")) {
+                    TextField("Username", text: $username)
+                }
+
+                Section(header: Text("GAME OPTIONS")) {
+                    Stepper(value: $boardSize, in: 3...10) {
+                        Text("Board size: ")
+                        Spacer()
+                        Text("\(boardSize) x \(boardSize)")
+                    }
+                    Button(action: { game.resetGame(boardSize: boardSize) }, label: {
+                        Spacer()
+                        Text("Start New Game")
+                    })
+                }
+
+            }
+            .navigationBarTitle("Settings")
+        }
     }
 }
 
 struct OptionsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        OptionsScreen()
+        OptionsScreen(username: .constant("username"), boardSize: .constant(4), game: GameEngine())
     }
 }
