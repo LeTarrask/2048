@@ -1,0 +1,6 @@
+framework module Pods_2048Tests {
+  umbrella header "Pods-2048Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
