@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TileView: View {
+    var cornerRadius: CGFloat = 10
+
     var tile: Tile
 
     var bgcolor: Color {
@@ -35,24 +37,34 @@ struct TileView: View {
         case 2048:
             return Color(UIColor(red: 0.94, green: 0.78, blue: 0.00, alpha: 1.00))
         default:
-            return Color(UIColor(red: 0.24, green: 0.23, blue: 0.19, alpha: 1.00))
+            return Color.lairGray
         }
     }
 
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(bgcolor)
-                .cornerRadius(15)
+                .foregroundColor(bgcolor).opacity(0.6)
+                .cornerRadius(cornerRadius)
+                .border(Color.gray, width: 1)
             Text(String(tile.value))
                 .fontWeight(.black)
+                .font(.system(size: 38))
+                .foregroundColor(.lairDarkGray)
+                .bold()
         }.animation(.spring())
+        .overlay(
+          RoundedRectangle(cornerRadius: cornerRadius)
+            .stroke(LinearGradient.lairDiagonalDarkBorder, lineWidth: 2)
+        )
+        .background(Color.lairBackgroundGray)
+        .cornerRadius(cornerRadius)
     }
 }
 
 struct TileView_Previews: PreviewProvider {
     static var previews: some View {
-        let tile = Tile(value: 4)
+        let tile = Tile(value: 2)
         return TileView(tile: tile)
     }
 }

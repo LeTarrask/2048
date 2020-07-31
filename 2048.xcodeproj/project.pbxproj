@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7935F1D724D4B4F70060C16F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935F1D624D4B4F70060C16F /* ColorExtension.swift */; };
+		7935F1D924D4B51D0060C16F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935F1D824D4B51D0060C16F /* UIColorExtension.swift */; };
+		7935F1DB24D4B5230060C16F /* LinearGradientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935F1DA24D4B5230060C16F /* LinearGradientExtension.swift */; };
 		7948C97924D2EFC3000288EE /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948C97824D2EFC3000288EE /* TileView.swift */; };
 		796EB35924D44703003A726D /* Array+IndexesOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796EB35824D44703003A726D /* Array+IndexesOf.swift */; };
 		796EB35B24D46B57003A726D /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796EB35A24D46B57003A726D /* Record.swift */; };
@@ -48,6 +51,9 @@
 		36F006C2EB618AF192579FD0 /* Pods-2048-2048UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048-2048UITests.debug.xcconfig"; path = "Target Support Files/Pods-2048-2048UITests/Pods-2048-2048UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C78FEA7BD13BB752A4E6C5F /* Pods_2048.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_2048.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6825FDE4BCB9CC8FB858AF2C /* Pods-2048Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048Tests.debug.xcconfig"; path = "Target Support Files/Pods-2048Tests/Pods-2048Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		7935F1D624D4B4F70060C16F /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		7935F1D824D4B51D0060C16F /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		7935F1DA24D4B5230060C16F /* LinearGradientExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearGradientExtension.swift; sourceTree = "<group>"; };
 		7948C97824D2EFC3000288EE /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		796EB35824D44703003A726D /* Array+IndexesOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+IndexesOf.swift"; sourceTree = "<group>"; };
 		796EB35A24D46B57003A726D /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -141,6 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				796EB35824D44703003A726D /* Array+IndexesOf.swift */,
+				7935F1D824D4B51D0060C16F /* UIColorExtension.swift */,
+				7935F1D624D4B4F70060C16F /* ColorExtension.swift */,
+				7935F1DA24D4B5230060C16F /* LinearGradientExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -451,10 +460,13 @@
 				79CC302124D31E8100C224E6 /* OptionsScreen.swift in Sources */,
 				79B3765824D1A48D0022D036 /* MainScreen.swift in Sources */,
 				79B3765624D1A48D0022D036 /* 2048App.swift in Sources */,
+				7935F1DB24D4B5230060C16F /* LinearGradientExtension.swift in Sources */,
 				79B3768224D1B93A0022D036 /* Board.swift in Sources */,
 				7948C97924D2EFC3000288EE /* TileView.swift in Sources */,
 				79B3768424D1B9480022D036 /* Tile.swift in Sources */,
+				7935F1D724D4B4F70060C16F /* ColorExtension.swift in Sources */,
 				796EB35924D44703003A726D /* Array+IndexesOf.swift in Sources */,
+				7935F1D924D4B51D0060C16F /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

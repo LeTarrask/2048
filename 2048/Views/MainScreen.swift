@@ -22,104 +22,122 @@ struct MainScreen: View {
 
     @State var boardSize: Int = 4
 
+    var cornerRadius: CGFloat = 10
+
     var body: some View {
         NavigationView {
-            VStack {
-                // MARK: - Control buttons
-                HStack {
-                    Spacer()
-                    VStack {
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(.blue)
-                                .cornerRadius(15)
-                                .frame(width: 100, height: 100)
-                            VStack {
-                                Text("SCORE")
-                                    .fontWeight(.bold)
-                                Text(String(game.score))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                            }
-                        }
-                        NavigationLink(
-                            destination: OptionsScreen(username: $playerName, boardSize: $boardSize, game: game),
-                            label: { Text("OPTIONS")})
-                        .padding(10)
-                        .background(Color.blue)
-                        .cornerRadius(5)
-                        .foregroundColor(.white)
-                    }
-                    VStack {
-                        ZStack {
-                            HStack {
-                                Rectangle()
-                                    .foregroundColor(.blue)
-                                    .cornerRadius(15)
-                                    .frame(width: 100, height: 100)
-                            }
-                            VStack {
-                                Text("BEST")
-                                    .fontWeight(.bold)
-                                Text(String(game.highest))
-                                    .foregroundColor(.white)
-                                    .fontWeight(.bold)
-                            }
-                        }
-                        Button("LEADERBOARD") {
-                            self.showLeader.toggle()
-                        }
-                        .padding(10)
-                        .background(Color.blue)
-                        .cornerRadius(5)
-                        .foregroundColor(.white)
-                    }
-                }.padding()
-
-                HStack {
-                    Spacer()
-                    Text(playerName)
-                }.padding(.trailing)
-
-                // MARK: - Board
-                VStack {
-                    ForEach(game.board.grid, id: \.self) { line in
-                        HStack {
-                            ForEach(line, id: \.self) { tile in
-                                TileView(tile: tile)
-                            }
-                        }
-                    }
-                }
-                .padding()
-                .background(Color.gray)
-                .cornerRadius(15)
-                .padding()
-                .gesture(
-                    DragGesture()
-                        .onChanged { gesture in
-                            self.offset = gesture.translation
-                        }
-                        .onEnded { value in
-                            if value.translation.width < 0
-                                && value.translation.height > -30
-                                && value.translation.height < 30 {
-                                self.game.move(direction: .left)
-                            } else if value.translation.width > 0
-                                        && value.translation.height > -30
-                                        && value.translation.height < 30 {
-                                self.game.move(direction: .right)
-                            } else if value.translation.height < 0
-                                        && value.translation.width < 100
-                                        && value.translation.width > -100 {
-                                self.game.move(direction: .up)
-                            } else if value.translation.height > 0
-                                        && value.translation.width < 100
-                                        && value.translation.width > -100 {
-                                self.game.move(direction: .down)
-                            }
-                        }
+            ZStack {
+                LinearGradient(
+                  gradient: Gradient(colors: [.white, .lairLightGray]),
+                  startPoint: UnitPoint(x: 0.2, y: 0.2),
+                  endPoint: .bottomTrailing
                 )
+
+                // MARK: - Screen Content
+                VStack {
+                    // MARK: - Board
+                    VStack {
+                        ForEach(game.board.grid, id: \.self) { line in
+                            HStack {
+                                ForEach(line, id: \.self) { tile in
+                                    TileView(tile: tile)
+                                }
+                            }
+                        }
+                    }
+                    .padding()
+                    .background(LinearGradient.lairHorizontalLight)
+                    .cornerRadius(cornerRadius)
+                    .overlay(
+                      RoundedRectangle(cornerRadius: cornerRadius)
+                        .stroke(LinearGradient.lairDiagonalLightBorder, lineWidth: 1)
+                    )
+                    .padding()
+                    .gesture(
+                        DragGesture()
+                            .onChanged { gesture in
+                                self.offset = gesture.translation
+                            }
+                            .onEnded { value in
+                                if value.translation.width < 0
+                                    && value.translation.height > -30
+                                    && value.translation.height < 30 {
+                                    self.game.move(direction: .left)
+                                } else if value.translation.width > 0
+                                            && value.translation.height > -30
+                                            && value.translation.height < 30 {
+                                    self.game.move(direction: .right)
+                                } else if value.translation.height < 0
+                                            && value.translation.width < 100
+                                            && value.translation.width > -100 {
+                                    self.game.move(direction: .up)
+                                } else if value.translation.height > 0
+                                            && value.translation.width < 100
+                                            && value.translation.width > -100 {
+                                    self.game.move(direction: .down)
+                                }
+                            }
+                    )
+
+                    // MARK: - Player name
+                    HStack {
+                        Spacer()
+                        Text(playerName)
+                            .foregroundColor(Color.lairDarkGray)
+                    }.padding(.trailing, 25)
+
+                    // MARK: - Control buttons
+                    HStack(alignment: .bottom) {
+                        Spacer()
+
+                        VStack(alignment: .trailing) {
+                            ZStack {
+                                Rectangle()
+                                    .foregroundColor(Color.lairLightGray)
+                                    .cornerRadius(cornerRadius)
+                                    .frame(width: 80, height: 70)
+                                VStack {
+                                    Text("SCORE")
+                                        .fontWeight(.bold)
+                                    Text(String(game.score))
+                                        .fontWeight(.bold)
+                                }
+                                .foregroundColor(Color.lairDarkGray)
+                            }
+                            NavigationLink(
+                                destination: OptionsScreen(username: $playerName, boardSize: $boardSize, game: game),
+                                label: { Text("OPTIONS") })
+                            .padding(10)
+                            .background(Color.lairLightGray)
+                            .cornerRadius(cornerRadius)
+                            .foregroundColor(Color.lairDarkGray)
+                        }
+                        VStack(alignment: .trailing) {
+                            ZStack {
+                                HStack {
+                                    Rectangle()
+                                        .foregroundColor(Color.lairLightGray)
+                                        .cornerRadius(cornerRadius)
+                                        .frame(width: 80, height: 70)
+                                }
+                                VStack {
+                                    Text("BEST")
+                                        .fontWeight(.bold)
+                                    Text(String(game.highest))
+                                        .foregroundColor(Color.lairDarkGray)
+                                        .fontWeight(.bold)
+                                }
+                            }
+                            Button("LEADERBOARD") {
+                                self.showLeader.toggle()
+                            }
+                            .padding(10)
+                            .background(Color.lairLightGray)
+                            .cornerRadius(cornerRadius)
+                            .foregroundColor(Color.lairDarkGray)
+                        }
+                    }.padding()
+                }
             }
             .sheet(isPresented: $showLeader) { LeaderBoard(game: game) }
             .navigationBarTitle("2048", displayMode: .inline)
