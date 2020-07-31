@@ -42,6 +42,7 @@ class GameEngine: ObservableObject {
 
     var leaderBoard: [Record] = [Record]() {
         didSet {
+            leaderBoard.sort(by: { $0.score > $1.score })
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(leaderBoard) {
                 defaults.set(encoded, forKey: "Leaderboard")

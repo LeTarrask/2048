@@ -10,8 +10,6 @@ import SwiftUI
 struct LeaderBoard: View {
     @ObservedObject var game: GameEngine
 
-    // [(String, Int)]
-
     var body: some View {
         VStack {
             Text("LEADERBOARD")
