@@ -40,19 +40,40 @@ class GameEngine: ObservableObject {
 
     func dropRandomTile(direction: MoveDirection) {
         if state != .over {
-            let random = Int.random(in: 0...boardSize-1)
-
             switch direction {
             case .up:
-                board.grid[boardSize-1][random].value = 2
+                if let column = findEmptyTile(array: board.grid[boardSize-1]) {
+                    board.grid[boardSize-1][column].value = 2
+                }
             case .down:
-                board.grid[0][random].value = 2
+                if let column = findEmptyTile(array: board.grid[0]) {
+                    board.grid[0][column].value = 2
+                }
             case .left:
-                board.grid[random][boardSize-1].value = 2
+                var lastColumn = [Tile]()
+                for line in board.grid {
+                    lastColumn.append(line.last!)
+                }
+                if let chosen = findEmptyTile(array: lastColumn) {
+                    board.grid[chosen][boardSize-1].value = 2
+                }
             case .right:
-                board.grid[random][0].value = 2
+                var firstColumn = [Tile]()
+                for line in board.grid {
+                    firstColumn.append(line.first!)
+                }
+                if let chosen = findEmptyTile(array: firstColumn) {
+                    board.grid[chosen][0].value = 2
+                }
             }
         }
+    }
+
+    // This function gets the array where we should drop a new 2 tile,
+    // finds a tile that's empty and returns it's index randomly
+    func findEmptyTile(array: [Tile]) -> Int? {
+        let available = array.indexes(of: Tile(value: 0))
+        return available.randomElement()
     }
 
     func checkState() {
@@ -184,3 +205,5 @@ class GameEngine: ObservableObject {
         return newArray
     }
 }
+
+

@@ -24,16 +24,6 @@ class _048Tests: XCTestCase {
     }
 
     func testBoardCreation() throws {
-        // Tests:
-        // [2,0,4,0]
-        // [0,4,0,8]
-        // [8,0,2,2]
-        // [2,2,2,2]
-        // [0,2,2,0]
-        // [2,2,2,8]
-        // [256,256,2,4]
-        // [2,0,2,0]
-
         let engine = GameEngine()
         let allTileValues = engine.board.grid.flatMap { $0 }.map { $0.value }
         XCTAssertEqual(allTileValues.count, 16, "There are 16 tiles on the standard board")
