@@ -62,11 +62,11 @@ class GameEngine: ObservableObject {
         var movesAvailable = false
 
         for line in 0...boardSize-1 {
-            for row in 0...boardSize-2 {
-                if board.grid[line][row].value == board.grid[line][row+1].value {
+            for row in 0...boardSize-2
+                where board.grid[line][row].value == board.grid[line][row+1].value {
                     movesAvailable = true
                 }
-            }
+
             for row in 0...boardSize-1 {
                 if line == boardSize-1 {
                     break
@@ -94,12 +94,14 @@ class GameEngine: ObservableObject {
     }
 
     enum MoveDirection {
+        // swiftlint:disable identifier_name
         case up
         case down
         case left
         case right
     }
 
+    // swiftlint:disable cyclomatic_complexity
     func move(direction: MoveDirection) {
         switch direction {
         case .down:
@@ -167,20 +169,16 @@ class GameEngine: ObservableObject {
         var newArray = [Int]()
 
         // Joins all numeric values together
-        for position in 0...array.count-1 {
-            if array[position] != 0 { newArray.append(array[position]) }
-        }
+        for position in 0...array.count-1 where array[position] != 0 { newArray.append(array[position]) }
 
         // Iterates new array to merge values, to the second to last element.
         // If duplicates found, doubles the first and eliminates the second
         if newArray.count > 1 {
-            for position in 0...newArray.count-2 {
-                if newArray[position] == newArray[position+1] {
+            for position in 0...newArray.count-2 where newArray[position] == newArray[position+1] {
                     newArray[position] = newArray[position] * 2
                     score += newArray[position]
                     newArray[position+1] = 0
                 }
-            }
         }
 
         newArray = newArray.filter({ $0 != 0 })
