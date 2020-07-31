@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7948C97924D2EFC3000288EE /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948C97824D2EFC3000288EE /* TileView.swift */; };
 		796EB35924D44703003A726D /* Array+IndexesOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796EB35824D44703003A726D /* Array+IndexesOf.swift */; };
+		796EB35B24D46B57003A726D /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796EB35A24D46B57003A726D /* Record.swift */; };
 		79B3765624D1A48D0022D036 /* 2048App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3765524D1A48D0022D036 /* 2048App.swift */; };
 		79B3765824D1A48D0022D036 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3765724D1A48D0022D036 /* MainScreen.swift */; };
 		79B3765A24D1A4900022D036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B3765924D1A4900022D036 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		6825FDE4BCB9CC8FB858AF2C /* Pods-2048Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048Tests.debug.xcconfig"; path = "Target Support Files/Pods-2048Tests/Pods-2048Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7948C97824D2EFC3000288EE /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		796EB35824D44703003A726D /* Array+IndexesOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+IndexesOf.swift"; sourceTree = "<group>"; };
+		796EB35A24D46B57003A726D /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		79B3765224D1A48D0022D036 /* 2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2048.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B3765524D1A48D0022D036 /* 2048App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2048App.swift; sourceTree = "<group>"; };
 		79B3765724D1A48D0022D036 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				79B3768124D1B93A0022D036 /* Board.swift */,
+				796EB35A24D46B57003A726D /* Record.swift */,
 				79B3768324D1B9480022D036 /* Tile.swift */,
 			);
 			path = Model;
@@ -444,6 +447,7 @@
 			files = (
 				79CC301F24D31DB100C224E6 /* LeaderBoard.swift in Sources */,
 				79B3768724D1B9680022D036 /* GameEngine.swift in Sources */,
+				796EB35B24D46B57003A726D /* Record.swift in Sources */,
 				79CC302124D31E8100C224E6 /* OptionsScreen.swift in Sources */,
 				79B3765824D1A48D0022D036 /* MainScreen.swift in Sources */,
 				79B3765624D1A48D0022D036 /* 2048App.swift in Sources */,

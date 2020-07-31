@@ -121,7 +121,7 @@ struct MainScreen: View {
                         }
                 )
             }
-            .sheet(isPresented: $showLeader) { LeaderBoard() }
+            .sheet(isPresented: $showLeader) { LeaderBoard(game: game) }
             .navigationBarTitle("2048", displayMode: .inline)
             .navigationBarItems(trailing: Button("Reset") { game.resetGame(boardSize: boardSize) })
         }

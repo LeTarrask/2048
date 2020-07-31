@@ -21,7 +21,7 @@ class GameEngine: ObservableObject {
             case .over:
                 print("game over")
             case .won:
-                let record = (playerName, score)
+                let record = Record(playerName: playerName, score: score)
                 leaderBoard.append(record)
                 let defaults = UserDefaults.standard
                 defaults.set(highest, forKey: "High Score")
@@ -36,7 +36,7 @@ class GameEngine: ObservableObject {
     }
 
     var playerName: String
-    var leaderBoard: [(String, Int)]
+    var leaderBoard: [Record]
 
     @Published var score: Int = 0 {
         didSet {
@@ -50,7 +50,7 @@ class GameEngine: ObservableObject {
 
     init() {
         highest = UserDefaults.standard.integer(forKey: "High Score")
-        leaderBoard = UserDefaults.standard.object(forKey: "Leaderboard") as? [(String, Int)] ?? [(String, Int)]()
+        leaderBoard = UserDefaults.standard.object(forKey: "Leaderboard") as? [Record] ?? [Record]()
         playerName = UserDefaults.standard.string(forKey: "Player Name") ?? "Player 1"
     }
 
