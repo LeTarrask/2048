@@ -15,7 +15,28 @@ class GameEngine: ObservableObject {
         case over
     }
 
-    @Published var state: State = .running
+    @Published var state: State = .running {
+        didSet {
+            switch state {
+            case .over:
+                print("game over")
+            case .won:
+                let record = (playerName, score)
+                leaderBoard.append(record)
+                let defaults = UserDefaults.standard
+                defaults.set(highest, forKey: "High Score")
+                defaults.set(playerName, forKey: "Player Name")
+                defaults.set(leaderBoard, forKey: "Leaderboard")
+            case .start:
+                print("started")
+            case .running:
+                print("running")
+            }
+        }
+    }
+
+    var playerName: String
+    var leaderBoard: [(String, Int)]
 
     @Published var score: Int = 0 {
         didSet {
@@ -24,10 +45,13 @@ class GameEngine: ObservableObject {
             }
         }
     }
+
     @Published var highest: Int = 0
 
     init() {
         highest = UserDefaults.standard.integer(forKey: "High Score")
+        leaderBoard = UserDefaults.standard.object(forKey: "Leaderboard") as? [(String, Int)] ?? [(String, Int)]()
+        playerName = UserDefaults.standard.string(forKey: "Player Name") ?? "Player 1"
     }
 
     var boardSize: Int = 4
@@ -102,17 +126,11 @@ class GameEngine: ObservableObject {
 
         if values.count == 0 && movesAvailable == false {
             state = .over
-            print("Game Over")
-            if highest > score {
-                // TO DO: - fix leaderbord thing
-                // should prompt user name to leaderboard
-                // save -> UserDefaults.standard.set(self.highest, forKey: "High Score")
-            }
         }
 
-        if board.grid.flatMap { $0 }.filter({ $0.value == 2048 }).count > 1 {
+        if board.grid.flatMap { $0 }.filter({ $0.value == 2048 }).count > 1
+            && movesAvailable == false {
             state = .won
-            print("Game Won")
         }
     }
 

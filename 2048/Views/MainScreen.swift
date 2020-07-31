@@ -14,7 +14,11 @@ struct MainScreen: View {
 
     @State var showLeader = false
 
-    @State var playerName: String = "Player 1"
+    @State var playerName: String = "Player 1" {
+        didSet {
+            game.playerName = playerName
+        }
+    }
 
     @State var boardSize: Int = 4
 
