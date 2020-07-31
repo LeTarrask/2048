@@ -15,11 +15,27 @@ struct LeaderBoard: View {
     var body: some View {
         VStack {
             Text("LEADERBOARD")
-            List(game.leaderBoard, id: \.self) { record in
-                Text(record.playerName)
-                Spacer()
-                Text("\(record.score) points")
+            List {
+                ForEach(game.leaderBoard, id: \.self) {                     BoardItem(record: $0)
+                }
+                .onDelete(perform: deleteRecord)
             }
+        }
+    }
+
+    func deleteRecord(at offsets: IndexSet) {
+        game.leaderBoard.remove(atOffsets: offsets)
+    }
+}
+
+struct BoardItem: View {
+    var record: Record
+
+    var body: some View {
+        HStack {
+            Text(record.playerName)
+            Spacer()
+            Text("\(record.score)")
         }
     }
 }

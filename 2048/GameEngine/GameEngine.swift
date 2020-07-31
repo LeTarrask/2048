@@ -15,6 +15,8 @@ class GameEngine: ObservableObject {
         case over
     }
 
+    let defaults = UserDefaults.standard
+
     @Published var state: State = .running {
         didSet {
             switch state {
@@ -23,10 +25,7 @@ class GameEngine: ObservableObject {
             case .won:
                 let record = Record(playerName: playerName, score: score)
                 leaderBoard.append(record)
-                let defaults = UserDefaults.standard
                 defaults.set(highest, forKey: "High Score")
-                defaults.set(playerName, forKey: "Player Name")
-                defaults.set(leaderBoard, forKey: "Leaderboard")
             case .start:
                 print("started")
             case .running:
@@ -35,8 +34,20 @@ class GameEngine: ObservableObject {
         }
     }
 
-    var playerName: String
-    var leaderBoard: [Record]
+    var playerName: String {
+        didSet {
+            defaults.set(playerName, forKey: "Player Name")
+        }
+    }
+
+    var leaderBoard: [Record] = [Record]() {
+        didSet {
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(leaderBoard) {
+                defaults.set(encoded, forKey: "Leaderboard")
+            }
+        }
+    }
 
     @Published var score: Int = 0 {
         didSet {
@@ -50,8 +61,16 @@ class GameEngine: ObservableObject {
 
     init() {
         highest = UserDefaults.standard.integer(forKey: "High Score")
-        leaderBoard = UserDefaults.standard.object(forKey: "Leaderboard") as? [Record] ?? [Record]()
         playerName = UserDefaults.standard.string(forKey: "Player Name") ?? "Player 1"
+
+        if let savedLeaderboard = defaults.object(forKey: "Leaderboard") as? Data {
+            print("theres memory")
+            let decoder = JSONDecoder()
+            if let loadedLeaderboard = try? decoder.decode([Record].self, from: savedLeaderboard) {
+                print("could decode")
+                leaderBoard = loadedLeaderboard
+            }
+        }
     }
 
     var boardSize: Int = 4

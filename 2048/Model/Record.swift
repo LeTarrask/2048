@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Record: Hashable {
+struct Record: Hashable, Codable {
     var playerName: String
     var score: Int
 }
