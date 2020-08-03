@@ -126,6 +126,11 @@ struct MainScreen: View {
                         }
                       }))
             }
+            .onReceive(game.$state) { state in
+                if [.won, .over].contains(state) {
+                    self.gameOver = true
+                }   
+            }
             .navigationBarTitle("2048", displayMode: .inline)
             .navigationBarItems(trailing: Button("Reset") { game.resetGame(boardSize: boardSize) })
         }
