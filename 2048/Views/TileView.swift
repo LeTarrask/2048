@@ -59,12 +59,22 @@ struct TileView: View {
         )
         .background(Color.backgroundGray)
         .cornerRadius(cornerRadius)
+        .shadow(
+          color: Color(white: 1.0).opacity(0.9),
+          radius: 4,
+          x: -4,
+          y: -4)
+        .shadow(
+          color: Color.shadowGray.opacity(0.5),
+          radius: 2,
+          x: 2,
+          y: 2)
     }
 }
 
 struct TileView_Previews: PreviewProvider {
     static var previews: some View {
-        let tile = Tile(value: 2)
+        let tile = Tile(value: 0)
         return TileView(tile: tile)
     }
 }

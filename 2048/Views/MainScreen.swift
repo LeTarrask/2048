@@ -27,11 +27,7 @@ struct MainScreen: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(
-                  gradient: Gradient(colors: [.white, .lightGray]),
-                  startPoint: UnitPoint(x: 0.2, y: 0.2),
-                  endPoint: .bottomTrailing
-                )
+                Color.backgroundGray.edgesIgnoringSafeArea(.all)
 
                 // MARK: - Screen Content
                 VStack {
@@ -45,13 +41,7 @@ struct MainScreen: View {
                             }
                         }
                     }
-                    .padding()
-                    .background(LinearGradient.horizontalLight)
-                    .cornerRadius(cornerRadius)
-                    .overlay(
-                      RoundedRectangle(cornerRadius: cornerRadius)
-                        .stroke(LinearGradient.diagonalLightBorder, lineWidth: 1)
-                    )
+                    .modifier(IsoRoundedBorder(Color.backgroundGray))
                     .padding()
                     .gesture(
                         DragGesture()
@@ -91,50 +81,37 @@ struct MainScreen: View {
                         Spacer()
 
                         VStack(alignment: .trailing) {
-                            ZStack {
-                                Rectangle()
-                                    .foregroundColor(Color.lightGray)
-                                    .cornerRadius(cornerRadius)
-                                    .frame(width: 80, height: 70)
-                                VStack {
-                                    Text("SCORE")
-                                        .fontWeight(.bold)
-                                    Text(String(game.score))
-                                        .fontWeight(.bold)
-                                }
-                                .foregroundColor(Color.darkGray)
+                            VStack {
+                                Text("SCORE")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.darkGray)
+                                Text(String(game.score))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.darkGray)
                             }
+                            .modifier(IsoRoundedBorder(Color.backgroundGray))
+                            .padding(.bottom)
                             NavigationLink(
                                 destination: OptionsScreen(username: $playerName, boardSize: $boardSize, game: game),
-                                label: { Text("OPTIONS") })
-                            .padding(10)
-                            .background(Color.lightGray)
-                            .cornerRadius(cornerRadius)
-                            .foregroundColor(Color.darkGray)
+                                label: { Text("Options").foregroundColor(.darkGray) })
+                                .modifier(IsoRoundedBorder(Color.backgroundGray))
                         }
                         VStack(alignment: .trailing) {
-                            ZStack {
-                                HStack {
-                                    Rectangle()
-                                        .foregroundColor(Color.lightGray)
-                                        .cornerRadius(cornerRadius)
-                                        .frame(width: 80, height: 70)
-                                }
-                                VStack {
-                                    Text("BEST")
-                                        .fontWeight(.bold)
-                                    Text(String(game.highest))
-                                        .foregroundColor(Color.darkGray)
-                                        .fontWeight(.bold)
-                                }
+                            VStack {
+                                Text("BEST")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.darkGray)
+                                Text(String(game.highest))
+                                    .foregroundColor(Color.darkGray)
+                                    .fontWeight(.bold)
                             }
-                            Button("LEADERBOARD") {
+                            .modifier(IsoRoundedBorder(Color.backgroundGray))
+                            .padding(.bottom)
+
+                            Button("Leaderboard") {
                                 self.showLeader.toggle()
                             }
-                            .padding(10)
-                            .background(Color.lightGray)
-                            .cornerRadius(cornerRadius)
-                            .foregroundColor(Color.darkGray)
+                            .modifier(IsoRoundedBorder(Color.backgroundGray))
                         }
                     }.padding()
                 }
