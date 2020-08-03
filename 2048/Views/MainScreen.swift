@@ -11,8 +11,8 @@ struct MainScreen: View {
     @ObservedObject var game = GameEngine()
 
     @State private var offset = CGSize.zero
-
     @State var showLeader = false
+    @State var gameOver = false
 
     @State var playerName: String = "Player 1" {
         didSet {
@@ -79,7 +79,6 @@ struct MainScreen: View {
                     // MARK: - Control buttons
                     HStack(alignment: .bottom) {
                         Spacer()
-
                         VStack(alignment: .trailing) {
                             VStack {
                                 Text("SCORE")
@@ -117,6 +116,16 @@ struct MainScreen: View {
                 }
             }
             .sheet(isPresented: $showLeader) { LeaderBoard(game: game) }
+            .alert(isPresented: $gameOver) {
+                Alert(title: Text("Game Over"),
+                      message: Text("There are no more moves available."),
+                      dismissButton: .default(Text("OK"), action: {
+                        self.game.resetGame(boardSize: boardSize)
+                        if game.state == .won {
+                            self.showLeader.toggle()
+                        }
+                      }))
+            }
             .navigationBarTitle("2048", displayMode: .inline)
             .navigationBarItems(trailing: Button("Reset") { game.resetGame(boardSize: boardSize) })
         }
