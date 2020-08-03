@@ -27,7 +27,10 @@ class GameEngine: ObservableObject {
                 leaderBoard.append(record)
                 defaults.set(highest, forKey: "High Score")
             case .start:
+                board = Board(size: boardSize)
+                score = 0
                 print("started")
+                state = .running
             case .running:
                 print("running")
             }
@@ -76,12 +79,6 @@ class GameEngine: ObservableObject {
 
     var boardSize: Int = 4
     @Published var board: Board = Board(size: 4)
-
-    func resetGame(boardSize: Int) {
-        board = Board(size: boardSize)
-        self.boardSize = boardSize
-        score = 0
-    }
 
     //swiftlint:disable cyclomatic_complexity
     func dropRandomTile(direction: MoveDirection) {

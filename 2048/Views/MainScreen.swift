@@ -120,10 +120,10 @@ struct MainScreen: View {
                 Alert(title: Text("Game Over"),
                       message: Text("There are no more moves available."),
                       dismissButton: .default(Text("OK"), action: {
-                        self.game.resetGame(boardSize: boardSize)
                         if game.state == .won {
                             self.showLeader.toggle()
                         }
+                        self.game.state = .start
                       }))
             }
             .onReceive(game.$state) { state in
@@ -132,7 +132,7 @@ struct MainScreen: View {
                 }
             }
             .navigationBarTitle("2048", displayMode: .inline)
-            .navigationBarItems(trailing: Button("Reset") { game.resetGame(boardSize: boardSize) })
+            .navigationBarItems(trailing: Button("Reset") { game.state = .start })
         }
     }
 }
