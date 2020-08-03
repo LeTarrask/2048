@@ -26,7 +26,7 @@ struct OptionsScreen: View {
                         Spacer()
                         Text("\(boardSize) x \(boardSize)")
                     }
-                    Button(action: { game.resetGame(boardSize: boardSize) }, label: {
+                    Button(action: { game.state = .start }, label: {
                         Text("Start New Game")
                     })
                 }
