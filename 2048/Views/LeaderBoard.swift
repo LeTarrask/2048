@@ -11,12 +11,20 @@ struct LeaderBoard: View {
     @ObservedObject var game: GameEngine
 
     var body: some View {
-        VStack {
-            Text("LEADERBOARD")
-            List {
-                ForEach(game.leaderBoard, id: \.self) {                     BoardItem(record: $0)
+        ZStack {
+            Color.backgroundGray.edgesIgnoringSafeArea(.all)
+
+            VStack {
+                Text("LEADERBOARD")
+                    .font(.largeTitle)
+
+                List {
+                    ForEach(game.leaderBoard, id: \.self) {                     BoardItem(record: $0)
+                                .modifier(IsoRoundedBorder(Color.lightGray))
+                    }
+                    .onDelete(perform: deleteRecord)
+                    .listRowBackground(Color.backgroundGray)
                 }
-                .onDelete(perform: deleteRecord)
             }
         }
     }
