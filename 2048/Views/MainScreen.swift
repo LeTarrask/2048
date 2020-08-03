@@ -50,12 +50,12 @@ struct MainScreen: View {
                             }
                             .onEnded { value in
                                 if value.translation.width < 0
-                                    && value.translation.height > -30
-                                    && value.translation.height < 30 {
+                                    && value.translation.height > -100
+                                    && value.translation.height < 100 {
                                     self.game.move(direction: .left)
                                 } else if value.translation.width > 0
-                                            && value.translation.height > -30
-                                            && value.translation.height < 30 {
+                                            && value.translation.height > -100
+                                            && value.translation.height < 100 {
                                     self.game.move(direction: .right)
                                 } else if value.translation.height < 0
                                             && value.translation.width < 100
@@ -129,7 +129,7 @@ struct MainScreen: View {
             .onReceive(game.$state) { state in
                 if [.won, .over].contains(state) {
                     self.gameOver = true
-                }   
+                }
             }
             .navigationBarTitle("2048", displayMode: .inline)
             .navigationBarItems(trailing: Button("Reset") { game.resetGame(boardSize: boardSize) })
