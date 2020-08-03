@@ -21,7 +21,7 @@ struct OptionsScreen: View {
                 }
 
                 Section(header: Text("GAME OPTIONS")) {
-                    Stepper(value: $boardSize, in: 3...10) {
+                    Stepper(value: $boardSize, in: 3...8) {
                         Text("Board size: ")
                         Spacer()
                         Text("\(boardSize) x \(boardSize)")

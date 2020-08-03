@@ -28,7 +28,7 @@ struct MainScreen: View {
         NavigationView {
             ZStack {
                 LinearGradient(
-                  gradient: Gradient(colors: [.white, .lairLightGray]),
+                  gradient: Gradient(colors: [.white, .lightGray]),
                   startPoint: UnitPoint(x: 0.2, y: 0.2),
                   endPoint: .bottomTrailing
                 )
@@ -46,11 +46,11 @@ struct MainScreen: View {
                         }
                     }
                     .padding()
-                    .background(LinearGradient.lairHorizontalLight)
+                    .background(LinearGradient.horizontalLight)
                     .cornerRadius(cornerRadius)
                     .overlay(
                       RoundedRectangle(cornerRadius: cornerRadius)
-                        .stroke(LinearGradient.lairDiagonalLightBorder, lineWidth: 1)
+                        .stroke(LinearGradient.diagonalLightBorder, lineWidth: 1)
                     )
                     .padding()
                     .gesture(
@@ -83,7 +83,7 @@ struct MainScreen: View {
                     HStack {
                         Spacer()
                         Text(playerName)
-                            .foregroundColor(Color.lairDarkGray)
+                            .foregroundColor(Color.darkGray)
                     }.padding(.trailing, 25)
 
                     // MARK: - Control buttons
@@ -93,7 +93,7 @@ struct MainScreen: View {
                         VStack(alignment: .trailing) {
                             ZStack {
                                 Rectangle()
-                                    .foregroundColor(Color.lairLightGray)
+                                    .foregroundColor(Color.lightGray)
                                     .cornerRadius(cornerRadius)
                                     .frame(width: 80, height: 70)
                                 VStack {
@@ -102,21 +102,21 @@ struct MainScreen: View {
                                     Text(String(game.score))
                                         .fontWeight(.bold)
                                 }
-                                .foregroundColor(Color.lairDarkGray)
+                                .foregroundColor(Color.darkGray)
                             }
                             NavigationLink(
                                 destination: OptionsScreen(username: $playerName, boardSize: $boardSize, game: game),
                                 label: { Text("OPTIONS") })
                             .padding(10)
-                            .background(Color.lairLightGray)
+                            .background(Color.lightGray)
                             .cornerRadius(cornerRadius)
-                            .foregroundColor(Color.lairDarkGray)
+                            .foregroundColor(Color.darkGray)
                         }
                         VStack(alignment: .trailing) {
                             ZStack {
                                 HStack {
                                     Rectangle()
-                                        .foregroundColor(Color.lairLightGray)
+                                        .foregroundColor(Color.lightGray)
                                         .cornerRadius(cornerRadius)
                                         .frame(width: 80, height: 70)
                                 }
@@ -124,7 +124,7 @@ struct MainScreen: View {
                                     Text("BEST")
                                         .fontWeight(.bold)
                                     Text(String(game.highest))
-                                        .foregroundColor(Color.lairDarkGray)
+                                        .foregroundColor(Color.darkGray)
                                         .fontWeight(.bold)
                                 }
                             }
@@ -132,9 +132,9 @@ struct MainScreen: View {
                                 self.showLeader.toggle()
                             }
                             .padding(10)
-                            .background(Color.lairLightGray)
+                            .background(Color.lightGray)
                             .cornerRadius(cornerRadius)
-                            .foregroundColor(Color.lairDarkGray)
+                            .foregroundColor(Color.darkGray)
                         }
                     }.padding()
                 }

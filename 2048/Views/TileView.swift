@@ -37,7 +37,7 @@ struct TileView: View {
         case 2048:
             return Color(UIColor(red: 0.94, green: 0.78, blue: 0.00, alpha: 1.00))
         default:
-            return Color.lairGray
+            return Color.specialGray
         }
     }
 
@@ -50,14 +50,14 @@ struct TileView: View {
             Text(String(tile.value))
                 .fontWeight(.black)
                 .font(.system(size: 38))
-                .foregroundColor(.lairDarkGray)
+                .foregroundColor(.darkGray)
                 .bold()
         }.animation(.spring())
         .overlay(
           RoundedRectangle(cornerRadius: cornerRadius)
-            .stroke(LinearGradient.lairDiagonalDarkBorder, lineWidth: 2)
+            .stroke(LinearGradient.diagonalDarkBorder, lineWidth: 2)
         )
-        .background(Color.lairBackgroundGray)
+        .background(Color.backgroundGray)
         .cornerRadius(cornerRadius)
     }
 }
