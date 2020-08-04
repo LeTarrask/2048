@@ -9,11 +9,9 @@
 
 import SwiftUI
 
-struct Loading: View {
+struct LoadingScreen: View {
     @State private var shouldAnimate = false
-    
-    @State var willMoveToNextScreen: Bool = false
-    
+        
     var body: some View {
         ZStack {
             LinearGradient.horizontalLight
@@ -41,12 +39,6 @@ struct Loading: View {
         }
         .onAppear {
             self.shouldAnimate = true
- 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                withAnimation {
-                    self.willMoveToNextScreen = true
-                }
-            }
         }
     }
 }
@@ -89,6 +81,6 @@ struct BlinkingRectangle: View {
 
 struct Loading_Previews: PreviewProvider {
     static var previews: some View {
-        Loading()
+        LoadingScreen()
     }
 }

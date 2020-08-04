@@ -15,7 +15,7 @@ struct LeaderBoard: View {
             Color.backgroundGray.edgesIgnoringSafeArea(.all)
 
             VStack {
-                Text("LEADERBOARD")
+                Text(NSLocalizedString("LEADERBOARD", comment: ""))
                     .font(.largeTitle)
 
                 List {

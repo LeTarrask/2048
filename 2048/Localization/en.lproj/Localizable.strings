@@ -1,0 +1,24 @@
+/* 
+  English.strings
+  2048
+
+  Created by Alex Luna on 04/08/2020.
+  
+*/
+
+"Score" = "SCORE";
+"BEST" = "BEST";
+"Player 1" = "Player 1";
+"Options" = "Options";
+"Leaderboard" = "Leaderboard";
+"GameOver" = "Game Over";
+"NoMovesAvailable." = "There are no more moves available.";
+"OK" = "OK";
+"Reset" = "Reset";
+"PROFILE" = "PROFILE";
+"Username" = "Username";
+"GAMEOPTIONS" = "GAME OPTIONS";
+"Boardsize" = "Board size: ";
+"StartNewGame" = "Start New Game";
+"Settings" = "Settings";
+"2048" = "2048";

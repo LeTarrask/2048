@@ -1,0 +1,25 @@
+/* 
+  Portuguese.strings
+  2048
+
+  Created by Alex Luna on 04/08/2020.
+  
+  Bundle can be updated automagically following this tutorial: https://medium.com/flawless-app-stories/localisation-in-ios-e88ef27b6faa
+*/
+
+"Score" = "PLACAR";
+"BEST" = "RECORDE";
+"Player 1" = "Jogador 1";
+"Options" = "Opções";
+"Leaderboard" = "Recordes";
+"GameOver" = "Fim do jogo";
+"NoMovesAvailable." = "Não existem movimentos possíveis.";
+"OK" = "OK";
+"Reset" = "Reiniciar";
+"PROFILE" = "PERFIL";
+"Username" = "Nome do usuário";
+"GAMEOPTIONS" = "OPÇÕES DE JOGO";
+"Boardsize" = "Tamanho do tabuleiro: ";
+"StartNewGame" = "Começar novo jogo";
+"Settings" = "Configurações";
+"2048" = "2048";

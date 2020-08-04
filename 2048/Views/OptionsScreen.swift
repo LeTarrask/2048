@@ -16,23 +16,23 @@ struct OptionsScreen: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("PROFILE")) {
-                    TextField("Username", text: $username)
+                Section(header: Text(NSLocalizedString("PROFILE", comment: ""))) {
+                    TextField(NSLocalizedString("Username", comment: ""), text: $username)
                 }
 
-                Section(header: Text("GAME OPTIONS")) {
+                Section(header: Text(NSLocalizedString("GAMEOPTIONS", comment: ""))) {
                     Stepper(value: $boardSize, in: 3...8) {
-                        Text("Board size: ")
+                        Text(NSLocalizedString("Boardsize", comment: ""))
                         Spacer()
                         Text("\(boardSize) x \(boardSize)")
                     }
                     Button(action: { game.state = .start }, label: {
-                        Text("Start New Game")
+                        Text(NSLocalizedString("StartNewGame", comment: ""))
                     })
                 }
 
             }
-            .navigationBarTitle("Settings")
+            .navigationBarTitle(NSLocalizedString("Settings", comment: ""))
         }
     }
 }
