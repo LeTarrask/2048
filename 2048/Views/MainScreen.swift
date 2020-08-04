@@ -148,7 +148,6 @@ struct MainScreen: View {
                 }
             }
         }
-        .animation(Animation.easeInOut(duration: 1.0))
         .onAppear {
             // 6.
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {

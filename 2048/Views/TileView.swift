@@ -42,33 +42,36 @@ struct TileView: View {
     }
 
     var body: some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(bgcolor).opacity(0.6)
-                .cornerRadius(cornerRadius)
-                .border(Color.gray, width: 1)
-            Text(String(tile.value))
-                .fontWeight(.black)
-                .font(.system(size: 38))
-                .foregroundColor(.darkGray)
-                .bold()
-        }.animation(.spring())
-        .overlay(
-          RoundedRectangle(cornerRadius: cornerRadius)
-            .stroke(LinearGradient.diagonalDarkBorder, lineWidth: 2)
-        )
-        .background(Color.backgroundGray)
-        .cornerRadius(cornerRadius)
-        .shadow(
-          color: Color(white: 1.0).opacity(0.9),
-          radius: 4,
-          x: -4,
-          y: -4)
-        .shadow(
-          color: Color.shadowGray.opacity(0.5),
-          radius: 2,
-          x: 2,
-          y: 2)
+        GeometryReader { geometry in
+            ZStack {
+                Rectangle()
+                    .foregroundColor(bgcolor).opacity(0.6)
+                    .cornerRadius(cornerRadius)
+                    .border(Color.gray, width: 1)
+                Text(String(tile.value))
+                    .fontWeight(.black)
+                    .font(.system(size: geometry.size.height > geometry.size.width ?
+                                    geometry.size.width * 0.4: geometry.size.height * 0.4))
+                    .foregroundColor(.darkGray)
+                    .bold()
+            }.animation(.spring())
+            .overlay(
+              RoundedRectangle(cornerRadius: cornerRadius)
+                .stroke(LinearGradient.diagonalDarkBorder, lineWidth: 2)
+            )
+            .background(Color.backgroundGray)
+            .cornerRadius(cornerRadius)
+            .shadow(
+              color: Color(white: 1.0).opacity(0.9),
+              radius: 4,
+              x: -4,
+              y: -4)
+            .shadow(
+              color: Color.shadowGray.opacity(0.5),
+              radius: 2,
+              x: 2,
+              y: 2)
+        }
     }
 }
 

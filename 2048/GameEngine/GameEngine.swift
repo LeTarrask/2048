@@ -28,8 +28,10 @@ class GameEngine: ObservableObject {
                 defaults.set(highest, forKey: "High Score")
             case .start:
                 board = Board(size: boardSize)
+                print(boardSize)
                 score = 0
                 print("started")
+                print(board.size)
                 state = .running
             case .running:
                 print("running")

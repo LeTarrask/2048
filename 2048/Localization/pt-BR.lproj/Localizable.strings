@@ -7,7 +7,7 @@
   Bundle can be updated automagically following this tutorial: https://medium.com/flawless-app-stories/localisation-in-ios-e88ef27b6faa
 */
 
-"Score" = "PLACAR";
+"SCORE" = "PLACAR";
 "BEST" = "RECORDE";
 "Player 1" = "Jogador 1";
 "Options" = "Opções";
