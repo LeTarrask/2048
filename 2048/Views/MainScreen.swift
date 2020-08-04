@@ -10,7 +10,7 @@ import SwiftUI
 struct MainScreen: View {
     @ObservedObject var game = GameEngine()
     
-    @State var splashActive: Bool = false
+    @State var splashActive: Bool = true
 
     @State private var offset = CGSize.zero
     @State var showLeader = false
