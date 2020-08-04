@@ -141,7 +141,7 @@ class GameEngine: ObservableObject {
             }
         }
 
-        if values.count == 0 && movesAvailable == false {
+        if values.isEmpty && movesAvailable == false {
             state = .over
         }
 

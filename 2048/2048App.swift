@@ -12,7 +12,7 @@ import SwiftUI
 struct _048App: App {
     var body: some Scene {
         WindowGroup {
-            MainScreen()
+            Loading()
         }
     }
 }
