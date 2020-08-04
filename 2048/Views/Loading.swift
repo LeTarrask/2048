@@ -37,6 +37,7 @@ struct Loading: View {
                                       number: "8")
                 }
             }
+            .modifier(IsoRoundedBorder(Color.backgroundGray))
         }
         .onAppear {
             self.shouldAnimate = true
@@ -60,6 +61,7 @@ struct BlinkingRectangle: View {
             RoundedRectangle(cornerRadius: 5)
                 .fill(color)
                 .frame(width: 80, height: 80)
+                
                 .overlay(
                     ZStack {
                         RoundedRectangle(cornerRadius: 5)
@@ -75,6 +77,7 @@ struct BlinkingRectangle: View {
                     .opacity(shouldAnimate ? 0.0 : 0.2)
                     .animation(Animation.easeInOut(duration: 1))
                 )
+            
             Text(number)
                 .fontWeight(.black)
                 .font(.system(size: 38))
