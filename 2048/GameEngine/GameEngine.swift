@@ -163,6 +163,8 @@ class GameEngine: ObservableObject {
 
     // swiftlint:disable cyclomatic_complexity
     func move(direction: MoveDirection) {
+        var preMoveScore = score
+
         switch direction {
         case .down:
             print("down move")
@@ -212,7 +214,11 @@ class GameEngine: ObservableObject {
             }
         }
         checkState()
-        dropRandomTile(direction: direction)
+
+        // This only happens when there was no change in the board
+        if preMoveScore == score {
+            dropRandomTile(direction: direction)
+        }
     }
 
     func transformArray(array: [Int]) -> [Int] {
