@@ -83,7 +83,7 @@ class GameEngine: ObservableObject {
     @Published var board: Board = Board(size: 4)
 
     //swiftlint:disable cyclomatic_complexity
-    func dropRandomTile(direction: MoveDirection) {
+    fileprivate func dropRandomTile(direction: MoveDirection) {
         if state != .over {
             switch direction {
             case .up:
@@ -116,12 +116,12 @@ class GameEngine: ObservableObject {
 
     // This function gets the array where we should drop a new 2 tile,
     // finds a tile that's empty and returns it's index randomly
-    func findEmptyTile(array: [Tile]) -> Int? {
+    fileprivate func findEmptyTile(array: [Tile]) -> Int? {
         let available = array.indexes(of: Tile(value: 0))
         return available.randomElement()
     }
 
-    func checkState() {
+    fileprivate func checkState() {
         // here it checks if all the spaces are occuppied
         let values = board.grid.flatMap { $0 }.filter { $0.value == 0 }
 
@@ -161,58 +161,70 @@ class GameEngine: ObservableObject {
         case right
     }
 
-    // swiftlint:disable cyclomatic_complexity
+    fileprivate func moveRight() {
+        for lineNumber in 0...boardSize-1 {
+            let backwardsArray = board.grid[lineNumber].map { $0.value }
+            let newArray = transformArray(array: backwardsArray.reversed() )
+            var newLine = [Tile]()
+            for value in newArray {
+                newLine.append(Tile(value: value))
+            }
+            board.grid[lineNumber] = newLine.reversed()
+        }
+    }
+
+    fileprivate func moveLeft() {
+        for lineNumber in 0...boardSize-1 {
+            let newArray = transformArray(array: board.grid[lineNumber].map { $0.value })
+            var newLine = [Tile]()
+            for value in newArray {
+                newLine.append(Tile(value: value))
+            }
+            board.grid[lineNumber] = newLine
+        }
+    }
+
+    fileprivate func moveUp() {
+        for row in 0...boardSize-1 {
+            var values = [Int]()
+            for line in 0...boardSize-1 {
+                values.append(board.grid[line][row].value)
+            }
+            let newArray = transformArray(array: values)
+            for line in 0...boardSize-1 {
+                board.grid[line][row].value = newArray[line]
+            }
+        }
+    }
+
+    fileprivate func moveDown() {
+        for row in 0...boardSize-1 {
+            var values = [Int]()
+            for line in 0...boardSize-1 {
+                values.append(board.grid[line][row].value)
+            }
+            var newArray = transformArray(array: values.reversed())
+            newArray.reverse()
+            for line in 0...boardSize-1 {
+                board.grid[line][row].value = newArray[line]
+            }
+        }
+    }
+
     func move(direction: MoveDirection) {
-        var preMoveScore = score
+        let preMoveScore = score
 
         switch direction {
         case .down:
-            print("down move")
-            for row in 0...boardSize-1 {
-                var values = [Int]()
-                for line in 0...boardSize-1 {
-                    values.append(board.grid[line][row].value)
-                }
-                var newArray = transformArray(array: values.reversed())
-                newArray.reverse()
-                for line in 0...boardSize-1 {
-                    board.grid[line][row].value = newArray[line]
-                }
-            }
+            moveDown()
         case .up:
-            print("up move")
-            for row in 0...boardSize-1 {
-                var values = [Int]()
-                for line in 0...boardSize-1 {
-                    values.append(board.grid[line][row].value)
-                }
-                let newArray = transformArray(array: values)
-                for line in 0...boardSize-1 {
-                    board.grid[line][row].value = newArray[line]
-                }
-            }
+            moveUp()
         case .left:
-            print("left move")
-            for lineNumber in 0...boardSize-1 {
-                let newArray = transformArray(array: board.grid[lineNumber].map { $0.value })
-                var newLine = [Tile]()
-                for value in newArray {
-                    newLine.append(Tile(value: value))
-                }
-                board.grid[lineNumber] = newLine
-            }
+            moveLeft()
         case .right:
-            print("right move")
-            for lineNumber in 0...boardSize-1 {
-                let backwardsArray = board.grid[lineNumber].map { $0.value }
-                let newArray = transformArray(array: backwardsArray.reversed() )
-                var newLine = [Tile]()
-                for value in newArray {
-                    newLine.append(Tile(value: value))
-                }
-                board.grid[lineNumber] = newLine.reversed()
-            }
+            moveRight()
         }
+
         checkState()
 
         // This only happens when there was no change in the board
