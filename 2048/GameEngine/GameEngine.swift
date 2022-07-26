@@ -147,7 +147,7 @@ class GameEngine: ObservableObject {
             state = .over
         }
 
-        if board.grid.flatMap { $0 }.filter({ $0.value == 2048 }).count > 1
+        if board.grid.flatMap({ $0 }).filter({ $0.value == 2048 }).count > 1
             && movesAvailable == false {
             state = .won
         }

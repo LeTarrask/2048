@@ -1,5 +1,6 @@
 disabled_rules: # rule identifiers to exclude from running
   - trailing_whitespace
+  - no_space_in_method_call
 opt_in_rules: # some rules are only opt-in
   - control_statement
   - empty_count
