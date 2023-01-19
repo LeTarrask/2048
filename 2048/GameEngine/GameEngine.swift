@@ -8,13 +8,17 @@
 import Foundation
 
 class GameEngine: ObservableObject {
+    /// The GameEngine class is responsible for managing the state of the game and updating the game board.
+    
     enum State {
+        // The State enum represents the different states that the game can be in: start, running, won, or over.
         case start
         case won
         case running
         case over
     }
 
+    // The defaults property is used to save the player's progress and leaderboard.
     let defaults = UserDefaults.standard
 
     @Published var state: State = .running {
@@ -83,6 +87,8 @@ class GameEngine: ObservableObject {
     @Published var board: Board = Board(size: 4)
 
     //swiftlint:disable cyclomatic_complexity
+    // The dropRandomTile method is responsible for randomly dropping a new tile onto the game board.
+    // It takes one parameter, direction, which represents the direction in which the tile should be added.
     fileprivate func dropRandomTile(direction: MoveDirection) {
         if state != .over {
             switch direction {
@@ -114,6 +120,7 @@ class GameEngine: ObservableObject {
         }
     }
 
+    // The findEmptyTile method is used to find an empty tile on the game board.
     // This function gets the array where we should drop a new 2 tile,
     // finds a tile that's empty and returns it's index randomly
     fileprivate func findEmptyTile(array: [Tile]) -> Int? {
@@ -211,6 +218,8 @@ class GameEngine: ObservableObject {
         }
     }
 
+    // The move method is responsible for moving the tiles on the game board in a certain direction.
+    // It takes one parameter, direction, which represents the direction in which the tiles should be moved.
     func move(direction: MoveDirection) {
         let preMoveScore = score
 
@@ -225,9 +234,12 @@ class GameEngine: ObservableObject {
             moveRight()
         }
 
+        // After moving the tiles, the method calls the checkState method to check if the game is over or if the player has won.
         checkState()
 
         // This only happens when there was no change in the board
+        // If the score did not change, the method calls the dropRandomTile method and passes in the direction parameter to drop a new tile on the game board.
+        // MARK: -- REFACTOR: INSTEAD OF SCORE CHANGE, THIS SHOULD BE A BOARD CHANGE, BECAUSE SOMETIMES STUFF MOVE WITHOUT MERGING TILES, AND IT STILL DROPS A NEW TILE
         if preMoveScore == score {
             dropRandomTile(direction: direction)
         }
