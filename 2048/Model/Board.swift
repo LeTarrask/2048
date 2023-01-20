@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Board {
+struct Board: Equatable {
     var grid = [[Tile]]()
     var size: Int
 

@@ -221,7 +221,7 @@ class GameEngine: ObservableObject {
     // The move method is responsible for moving the tiles on the game board in a certain direction.
     // It takes one parameter, direction, which represents the direction in which the tiles should be moved.
     func move(direction: MoveDirection) {
-        let preMoveScore = score
+        let preMoveBoard = board
 
         switch direction {
         case .down:
@@ -234,13 +234,15 @@ class GameEngine: ObservableObject {
             moveRight()
         }
 
-        // After moving the tiles, the method calls the checkState method to check if the game is over or if the player has won.
+        // After moving the tiles, the method calls the checkState method
+        // to check if the game is over or if the player has won.
         checkState()
 
         // This only happens when there was no change in the board
-        // If the score did not change, the method calls the dropRandomTile method and passes in the direction parameter to drop a new tile on the game board.
-        // MARK: -- REFACTOR: INSTEAD OF SCORE CHANGE, THIS SHOULD BE A BOARD CHANGE, BECAUSE SOMETIMES STUFF MOVE WITHOUT MERGING TILES, AND IT STILL DROPS A NEW TILE
-        if preMoveScore == score {
+        // If the score did not change, the method calls the dropRandomTile method
+        // and passes in the direction parameter to drop a new tile on the game board.
+
+        if preMoveBoard == board {
             dropRandomTile(direction: direction)
         }
     }
