@@ -4,8 +4,6 @@
 //
 //  Created by Alex Luna on 04/08/2020.
 //
-// inspired by this tutorial https://medium.com/better-programming/
-// create-an-awesome-loading-state-using-swiftui-9815ff6abb80
 
 import SwiftUI
 
