@@ -8,9 +8,6 @@ target '2048' do
   # Pods for 2048
   pod 'SwiftLint'
 
-  # Pod for Google Ad Mob
-  pod 'Google-Mobile-Ads-SDK'
-
   target '2048Tests' do
     inherit! :search_paths
     # Pods for testing

@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79250D9725FA339000F8EC75 /* AdMob InterstitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79250D9625FA339000F8EC75 /* AdMob InterstitialVC.swift */; };
 		7935F1D724D4B4F70060C16F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935F1D624D4B4F70060C16F /* ColorExtension.swift */; };
 		7935F1D924D4B51D0060C16F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935F1D824D4B51D0060C16F /* UIColorExtension.swift */; };
 		7935F1DB24D4B5230060C16F /* LinearGradientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935F1DA24D4B5230060C16F /* LinearGradientExtension.swift */; };
@@ -19,8 +18,6 @@
 		7982668924D9868C002F7FC3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7982668B24D9868C002F7FC3 /* Localizable.strings */; };
 		7982668C24D98691002F7FC3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7982668E24D98691002F7FC3 /* Localizable.strings */; };
 		79918C5C24D95E5000E92D35 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79918C5B24D95E5000E92D35 /* Loading.swift */; };
-		79976E6225FA452D00A7492A /* InterstitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79976E6125FA452D00A7492A /* InterstitialView.swift */; };
-		79976E7025FA45AD00A7492A /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79976E6F25FA45AD00A7492A /* BannerView.swift */; };
 		79B3765624D1A48D0022D036 /* 2048App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3765524D1A48D0022D036 /* 2048App.swift */; };
 		79B3765824D1A48D0022D036 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3765724D1A48D0022D036 /* MainScreen.swift */; };
 		79B3765A24D1A4900022D036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B3765924D1A4900022D036 /* Assets.xcassets */; };
@@ -32,7 +29,6 @@
 		79B3768724D1B9680022D036 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3768624D1B9680022D036 /* GameEngine.swift */; };
 		79CC301F24D31DB100C224E6 /* LeaderBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CC301E24D31DB100C224E6 /* LeaderBoard.swift */; };
 		79CC302124D31E8100C224E6 /* OptionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CC302024D31E8100C224E6 /* OptionsScreen.swift */; };
-		79EAA31A25FA482200C817F6 /* AdMob BannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EAA31925FA482200C817F6 /* AdMob BannerVC.swift */; };
 		B12E9C2E138749223F61A78B /* Pods_2048Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27F2A170108ACE5A8BC6CD4 /* Pods_2048Tests.framework */; };
 		B6FD5B590B6574DC0707BF06 /* Pods_2048_2048UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F894B6A9744F0221A6AE8234 /* Pods_2048_2048UITests.framework */; };
 		EACDB890D2A3FC008C0420BF /* Pods_2048.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C78FEA7BD13BB752A4E6C5F /* Pods_2048.framework */; };
@@ -60,7 +56,6 @@
 		36F006C2EB618AF192579FD0 /* Pods-2048-2048UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048-2048UITests.debug.xcconfig"; path = "Target Support Files/Pods-2048-2048UITests/Pods-2048-2048UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C78FEA7BD13BB752A4E6C5F /* Pods_2048.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_2048.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6825FDE4BCB9CC8FB858AF2C /* Pods-2048Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048Tests.debug.xcconfig"; path = "Target Support Files/Pods-2048Tests/Pods-2048Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		79250D9625FA339000F8EC75 /* AdMob InterstitialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdMob InterstitialVC.swift"; sourceTree = "<group>"; };
 		7935F1D624D4B4F70060C16F /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		7935F1D824D4B51D0060C16F /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		7935F1DA24D4B5230060C16F /* LinearGradientExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearGradientExtension.swift; sourceTree = "<group>"; };
@@ -72,8 +67,6 @@
 		7982668A24D9868C002F7FC3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		7982668D24D98691002F7FC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		79918C5B24D95E5000E92D35 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
-		79976E6125FA452D00A7492A /* InterstitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialView.swift; sourceTree = "<group>"; };
-		79976E6F25FA45AD00A7492A /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		79B3765224D1A48D0022D036 /* 2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2048.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B3765524D1A48D0022D036 /* 2048App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2048App.swift; sourceTree = "<group>"; };
 		79B3765724D1A48D0022D036 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
@@ -91,7 +84,6 @@
 		79B3768624D1B9680022D036 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 		79CC301E24D31DB100C224E6 /* LeaderBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoard.swift; sourceTree = "<group>"; };
 		79CC302024D31E8100C224E6 /* OptionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScreen.swift; sourceTree = "<group>"; };
-		79EAA31925FA482200C817F6 /* AdMob BannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdMob BannerVC.swift"; sourceTree = "<group>"; };
 		7EA323A66E609A25CF375C29 /* Pods-2048Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048Tests.release.xcconfig"; path = "Target Support Files/Pods-2048Tests/Pods-2048Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C27F2A170108ACE5A8BC6CD4 /* Pods_2048Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_2048Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87AD2496F92D5B9A5DBDE74 /* Pods-2048.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048.release.xcconfig"; path = "Target Support Files/Pods-2048/Pods-2048.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,17 +140,6 @@
 				C27F2A170108ACE5A8BC6CD4 /* Pods_2048Tests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		79250D8D25FA307900F8EC75 /* AdMob */ = {
-			isa = PBXGroup;
-			children = (
-				79EAA31925FA482200C817F6 /* AdMob BannerVC.swift */,
-				79976E6F25FA45AD00A7492A /* BannerView.swift */,
-				79250D9625FA339000F8EC75 /* AdMob InterstitialVC.swift */,
-				79976E6125FA452D00A7492A /* InterstitialView.swift */,
-			);
-			path = AdMob;
 			sourceTree = "<group>";
 		};
 		7948C97A24D314CE000288EE /* Views */ = {
@@ -222,7 +203,6 @@
 			children = (
 				79B3765524D1A48D0022D036 /* 2048App.swift */,
 				79B3765E24D1A4900022D036 /* Info.plist */,
-				79250D8D25FA307900F8EC75 /* AdMob */,
 				7948C97A24D314CE000288EE /* Views */,
 				79B3768524D1B95D0022D036 /* GameEngine */,
 				79B3768024D1B9260022D036 /* Model */,
@@ -290,7 +270,6 @@
 				79B3764F24D1A48D0022D036 /* Frameworks */,
 				79B3765024D1A48D0022D036 /* Resources */,
 				792F14AE24D42BF2004E66E0 /* ShellScript */,
-				9DFEC1754E723621E6EDE6A0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -328,7 +307,6 @@
 				79B3766A24D1A4910022D036 /* Sources */,
 				79B3766B24D1A4910022D036 /* Frameworks */,
 				79B3766C24D1A4910022D036 /* Resources */,
-				39B81E0061551E9883A0396C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -434,23 +412,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		39B81E0061551E9883A0396C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-2048-2048UITests/Pods-2048-2048UITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-2048-2048UITests/Pods-2048-2048UITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-2048-2048UITests/Pods-2048-2048UITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		792F14AE24D42BF2004E66E0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -490,23 +451,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9DFEC1754E723621E6EDE6A0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-2048/Pods-2048-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-2048/Pods-2048-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-2048/Pods-2048-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C0B40B1F7FB4490FD6B1B56B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -536,15 +480,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79976E7025FA45AD00A7492A /* BannerView.swift in Sources */,
 				79CC301F24D31DB100C224E6 /* LeaderBoard.swift in Sources */,
 				79B3768724D1B9680022D036 /* GameEngine.swift in Sources */,
 				796EB35B24D46B57003A726D /* Record.swift in Sources */,
 				79CC302124D31E8100C224E6 /* OptionsScreen.swift in Sources */,
-				79EAA31A25FA482200C817F6 /* AdMob BannerVC.swift in Sources */,
 				79B3765824D1A48D0022D036 /* MainScreen.swift in Sources */,
-				79250D9725FA339000F8EC75 /* AdMob InterstitialVC.swift in Sources */,
-				79976E6225FA452D00A7492A /* InterstitialView.swift in Sources */,
 				79B3765624D1A48D0022D036 /* 2048App.swift in Sources */,
 				79918C5C24D95E5000E92D35 /* Loading.swift in Sources */,
 				793BC03624D81562009539D3 /* View+Borders.swift in Sources */,
@@ -746,8 +686,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tarrask.-048";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -769,8 +712,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tarrask.-048";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -791,8 +737,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.garageminfinita.-048Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/2048.app/2048";
 			};
 			name = Debug;
@@ -814,8 +763,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.garageminfinita.-048Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/2048.app/2048";
 			};
 			name = Release;
@@ -835,8 +787,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.garageminfinita.-048UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = 2048;
 			};
 			name = Debug;
@@ -856,8 +811,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.garageminfinita.-048UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = 2048;
 			};
 			name = Release;
