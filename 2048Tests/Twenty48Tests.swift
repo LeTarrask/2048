@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import _048
+@testable import Twenty48
 // swiftlint:disable type_name
-class _048Tests: XCTestCase {
+class Twenty48Tests: XCTestCase {
 
     func testBoardCreation() throws {
         let engine = GameEngine()

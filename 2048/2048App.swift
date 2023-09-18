@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 // swiftlint:disable type_name
-struct _048App: App {
+struct Twenty48: App {
     var body: some Scene {
         WindowGroup {
             MainScreen()

@@ -77,7 +77,19 @@ struct TileView: View {
 
 struct TileView_Previews: PreviewProvider {
     static var previews: some View {
-        let tile = Tile(value: 0)
-        return TileView(tile: tile)
+        Group {
+            ForEach([2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096], id: \.self) { value in
+                TileView(tile: Tile(value: value))
+                    .frame(width: 100, height: 100) // Set your desired frame size here
+                    .previewLayout(.sizeThatFits)
+                    .padding()
+                    .background(Color.white)
+            }
+            TileView(tile: Tile(value: 0)) // Default case
+                .frame(width: 100, height: 100) // Set your desired frame size here
+                .previewLayout(.sizeThatFits)
+                .padding()
+                .background(Color.white)
+        }
     }
 }
